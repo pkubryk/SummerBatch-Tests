@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{13298FD4-A172-3150-AF0D-48404BAFBA21}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Com.Netfective.Bluage</RootNamespace>
+    <AssemblyName>SORTJOB_Launcher</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>Bluageinstitute.Magiclibrary.Batch.Jobs.SortjobLauncher</StartupObject>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SummerBatch_Test-batch\SummerBatch_Test-batch.csproj">
+      <Project>{F3BFC8B1-6484-32AA-AB50-B0931DDB05D1}</Project>
+      <Name>SummerBatch_Test-batch</Name>
+    </ProjectReference>
+    <Reference Include="Summer.Batch.Common">
+      <HintPath>..\packages\SummerBatch.1.0.0\lib\net45\Summer.Batch.Common.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Summer.Batch.Core">
+      <HintPath>..\packages\SummerBatch.1.0.0\lib\net45\Summer.Batch.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Summer.Batch.Data">
+      <HintPath>..\packages\SummerBatch.1.0.0\lib\net45\Summer.Batch.Data.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Summer.Batch.Extra">
+      <HintPath>..\packages\SummerBatch.1.0.0\lib\net45\Summer.Batch.Extra.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Summer.Batch.Infrastructure">
+      <HintPath>..\packages\SummerBatch.1.0.0\lib\net45\Summer.Batch.Infrastructure.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NLog">
+      <HintPath>..\packages\NLog.4.1.2\lib\net45\NLog.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity">
+      <HintPath>..\packages\Unity.3.5.1404.0\lib\net45\Microsoft.Practices.Unity.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <!-- EXTRA REFERENCES GO HERE -->
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <Content Include="App.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Bluageinstitute/Magiclibrary/Batch/Jobs\SortjobLauncher.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

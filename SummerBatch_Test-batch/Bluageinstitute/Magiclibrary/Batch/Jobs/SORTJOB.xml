@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<job id="SORTJOB" xmlns="http://www.summerbatch.com/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.summerbatch.com/xmlns http://www.summerbatch.com/xmlns/SummerBatchXML_1_0.xsd">
+	<step id="step0">
+		<batchlet ref="step0Batchlet" />
+	</step>
+</job>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+<!-- Project type: solution, project name: SummerBatch_Test-solution -->
+	<classpathentry combineaccessrules="false" kind="src" path="/SummerBatch_Test-batch"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/SummerBatch_Test-launcher"/>
+</classpath>
