@@ -20,12 +20,12 @@ namespace Bluageinstitute.Magiclibrary.Batch.Jobs
         public override void LoadArtifacts(IUnityContainer container)
         {
             RegisterStep0Tasklet(container);
+            RegisterStep1Tasklet(container);
         }
 
         // Step step0 - Sort step
         private void RegisterStep0Tasklet(IUnityContainer container)
         {
-
             IList<OutputFile> list = new List<OutputFile>();
             var outputFile1 = new OutputFile
             {
@@ -46,7 +46,7 @@ namespace Bluageinstitute.Magiclibrary.Batch.Jobs
             };
             var outputFile5 = new OutputFile
             {
-                
+
             };
             list.Add(outputFile1);
             list.Add(outputFile2);
@@ -56,8 +56,21 @@ namespace Bluageinstitute.Magiclibrary.Batch.Jobs
             container.StepScopeRegistration<ITasklet, CustomSortTasklet>("step0Batchlet")
                 .Property("Input").Resources("#{settings['SORTJOB.step0.inputFiles']}")
                 .Property("Output").Resource("#{settings['SORTJOB.step0.outputFile']}")
-                .Property("outputFile").Value(list)
                 .Property("HeaderSize").Value(0)
+                .Property("outputFile").Value(list)
+                .Property("Separator").Value(Environment.NewLine)
+                .Property("SortCard").Value("FORMAT=CH,FIELDS=(121,14,CH,A)")
+                .Register();
+        }
+
+        // Step step1 - Sort step
+        private void RegisterStep1Tasklet(IUnityContainer container)
+        {
+            container.StepScopeRegistration<ITasklet, SortTasklet>("step1Batchlet")
+                .Property("Input").Resources("#{settings['SORTJOB.step1.inputFiles']}")
+                .Property("Output").Resource("#{settings['SORTJOB.step1.outputFile']}")
+                .Property("HeaderSize").Value(0)
+                .Property("Include").Value("(75,2,BI,NE,X'5244')")
                 .Property("Separator").Value(Environment.NewLine)
                 .Property("SortCard").Value("FORMAT=CH,FIELDS=(121,14,CH,A)")
                 .Register();
