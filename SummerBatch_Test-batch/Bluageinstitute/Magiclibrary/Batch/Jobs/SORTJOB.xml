@@ -3,7 +3,10 @@
 	<step id="step0" next="step1">
 		<batchlet ref="step0Batchlet" />
 	</step>
-	<step id="step1">
+	<step id="step1" next="step2">
 		<batchlet ref="step1Batchlet" />
 	</step>
+  <step id="step2">
+    <batchlet ref="step2Batchlet" />
+  </step>
 </job>
